@@ -16,7 +16,7 @@
 1. Clone o repositório:
 
   ```bash
-  git clone https://github.com/usuario/my-memorabilia.git
+  git clone https://github.com/usuario/memorabilia.git
   ```
 
 2. Navegue até o diretório do projeto:
