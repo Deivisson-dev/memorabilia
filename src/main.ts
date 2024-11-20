@@ -12,7 +12,7 @@ import ToastService from 'primevue/toastservice';
 
 import Toast from "primevue/toast";
 
-import PrimevueConfig from "@/primevue.config.ts"
+import PrimevueConfig from "@/primevue.config";
 
 import router from '@/router';
 
