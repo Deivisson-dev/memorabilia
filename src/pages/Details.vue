@@ -248,12 +248,6 @@ const cardDetails: CardDetails = {
         'A astronomia é a ciência que estuda corpos celestes como estrelas, planetas e galáxias, bem como os fenômenos que os envolvem. Utiliza observações, cálculos e teorias para compreender a origem, a evolução e a estrutura do universo.',
   },
 
-  metodo_cientifico: {
-    title: 'Método Científico',
-    content:
-        'O método científico é um processo sistemático de investigação baseado em observação, formulação de hipóteses, experimentação e análise. Utilizado nas ciências naturais e sociais, permite validar teorias e buscar explicações racionais para os fenômenos.',
-  },
-
   razao: {
     title: 'Razão',
     content:
