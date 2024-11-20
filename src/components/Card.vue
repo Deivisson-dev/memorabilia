@@ -2,6 +2,7 @@
 import { defineProps } from 'vue';
 import { useRouter } from 'vue-router';
 import {Card} from "primevue";
+import {Button} from "primevue";
 
 const props = defineProps<{
   title: string;
@@ -18,21 +19,18 @@ function navigateToDetails() {
 
 <template>
   <Card
-      class="cursor-pointer hover:shadow-lg"
-      @click="navigateToDetails"
-      style="background-color: #0D1317; color: white; border: 1px solid #374151;"
+      class="hover:shadow-lg bg-[#0D1317] text-white border border-[#374151]"
   >
     <template #title>
       <h3 class="text-xl font-bold">{{ title }}</h3>
     </template>
     <template #content>
       <p class="mb-4">{{ description }}</p>
-      <button
+      <Button
           class="bg-[#101D42] hover:bg-[#232ED1] text-white py-2 px-4 rounded"
-          @click.stop="navigateToDetails"
-      >
-        Ver Detalhes
-      </button>
+          label="Ver Detalhes"
+          @click="navigateToDetails"
+      />
     </template>
   </Card>
 </template>

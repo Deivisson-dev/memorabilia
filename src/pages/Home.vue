@@ -48,11 +48,30 @@ const cards = ref<CardData[]>([
   { id: 'impacto_cultural', title: 'Impacto Cultural', description: 'Influência que a ciência e a tecnologia exercem sobre a cultura e os valores sociais.' },
   { id: 'transformacoes_cientificas', title: 'Transformações Científicas', description: 'Mudanças nas práticas e paradigmas científicos ao longo do tempo.' },
   { id: 'critica_cientifica', title: 'Crítica Científica', description: 'Análise reflexiva sobre os fundamentos, métodos e impactos das práticas científicas.' },
-  { id: 'paradigmas_cientificos', title: 'Paradigmas Científicos', description: 'Conjuntos de pressupostos e práticas que orientam a produção científica em um determinado período.' }
+  { id: 'paradigmas_cientificos', title: 'Paradigmas Científicos', description: 'Conjuntos de pressupostos e práticas que orientam a produção científica em um determinado período.' },
+  { id: 'teologia_natural', title: 'Teologia Natural', description: 'O estudo racional sobre Deus e o universo, baseado em observações da natureza e não em revelações divinas.' },
+  { id: 'universo', title: 'Universo', description: 'O conjunto total de espaço, tempo, matéria e energia, incluindo todos os astros, galáxias e formas de vida.' },
+  { id: 'cosmos', title: 'Cosmos', description: 'A totalidade ordenada e harmoniosa do universo, frequentemente associada a conceitos de grandiosidade e beleza.' },
+  { id: 'evolucao', title: 'Evolução', description: 'O processo de mudanças acumulativas ao longo do tempo que resultam no desenvolvimento de organismos e sistemas mais complexos.' },
+  { id: 'astronomia', title: 'Astronomia', description: 'A ciência que estuda corpos celestes como estrelas, planetas e galáxias, bem como os fenômenos que os envolvem.' },
+  { id: 'razao', title: 'Razão', description: 'A capacidade humana de pensar de forma lógica e analítica, utilizada para compreender e resolver problemas.' },
+  { id: 'evidencia', title: 'Evidência', description: 'Dados ou informações que apoiam ou refutam uma hipótese ou crença, sendo essencial para o método científico.' },
+  { id: 'antropocentrismo', title: 'Antropocentrismo', description: 'A visão de que o ser humano é o centro ou o mais importante elemento do universo.' },
+  { id: 'via_lactea', title: 'Via Láctea', description: 'A galáxia que contém o sistema solar, composta por bilhões de estrelas, planetas e outros corpos celestes.' },
+  { id: 'darwinismo', title: 'Darwinismo', description: 'Teoria de Charles Darwin que explica a evolução das espécies por meio da seleção natural.' },
+  { id: 'copernico', title: 'Copérnico', description: 'Astrônomo que propôs o modelo heliocêntrico, retirando a Terra do centro do universo.' },
+  { id: 'criacionismo', title: 'Criacionismo', description: 'Crença de que o universo e a vida foram criados por um ser divino, frequentemente em oposição às teorias científicas de evolução.' },
+  { id: 'carl_sagan', title: 'Carl Sagan', description: 'Astrônomo e divulgador científico que popularizou a ciência e a exploração espacial por meio de livros e programas de televisão.' },
 ]);
 
+const normalize = (str: string): string => {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+}
+
 const filteredCards = computed(() =>
-    cards.value.filter(card => card.title.toLowerCase().includes(searchTerm.value.toLowerCase()))
+    cards.value.filter(card =>
+        normalize(card.title).includes(normalize(searchTerm.value))
+    )
 );
 </script>
 
