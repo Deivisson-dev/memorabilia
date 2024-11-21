@@ -2,6 +2,8 @@
 import { ref, computed } from 'vue';
 import Card from '../components/Card.vue';
 import InputText from 'primevue/inputtext';
+import router from "@/router";
+import Button from 'primevue/button';
 
 interface CardData {
   id: string;
@@ -73,11 +75,24 @@ const filteredCards = computed(() =>
         normalize(card.title).includes(normalize(searchTerm.value))
     )
 );
+
+const goAbout = () => {
+  router.push('/about');
+}
+
+
 </script>
 
 <template>
   <div class="w-full h-full bg-[#0D1317] text-white flex flex-col items-center p-4 min-h-screen">
-    <h1 class="text-4xl font-bold mb-4">Memorabilia Filosofia da Ciência</h1>
+    <div class="bg-[#1B232A] w-full max-w-screen-lg p-6 gap-4 rounded-lg shadow-md flex flex-col items-center md:justify-between md:items-center mb-6">
+      <h1 class="text-3xl md:text-4xl font-bold text-center md:text-left">Memorabilia Filosofia da Ciência</h1>
+      <Button
+          class="bg-[#101D42] hover:bg-[#232ED1] text-white py-2 px-6 mt-4 md:mt-0 rounded"
+          label="Sobre Mim"
+          @click="goAbout"
+      />
+    </div>
     <div class="mb-4 w-full max-w-lg">
       <InputText
           v-model="searchTerm"
@@ -85,6 +100,7 @@ const filteredCards = computed(() =>
           class="w-full p-2 bg-gray-900 text-white border border-gray-600 rounded-md"
       />
     </div>
+
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-screen-lg">
       <Card
           v-for="card in filteredCards"
@@ -93,10 +109,13 @@ const filteredCards = computed(() =>
           :title="card.title"
           :description="card.description"
       />
-      <p v-if="filteredCards.length === 0" class="text-gray-400 col-span-full text-center">Nenhum resultado encontrado.</p>
+      <p v-if="filteredCards.length === 0" class="text-gray-400 col-span-full text-center">
+        Nenhum resultado encontrado.
+      </p>
     </div>
   </div>
 </template>
+
 
 <style scoped>
 </style>
